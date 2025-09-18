@@ -1,20 +1,17 @@
 //we go and get the posts from /posts.js and import it here in /routes/postsRoute.js
-//importing array of posts
-  const data = require("../data/posts.js");
+
+//importing db connection
+
+  const connection = require("../data/db.js");
 
   function index  (req,res){
-  //here we show all posts
-  //creating a new array
-  let filteredArray=data;
-  if (req.query.tags){
-    const tag=req.query.tags.toLowerCase();
-    console.log(tag)
-    filteredArray= data.filter(post=>{
-      return post.tags.map(tag=> tag.toLowerCase()).includes(tag)});
-  }
-  
- 
-  res.send(filteredArray);
+    const query= `SELECT * FROM posts`;
+  connection.query(query,(err,results)=>{
+    if(err){
+      return res.status(500).json({error: "query failed", err})
+    }
+    return res.json(results);
+  })  
   }
 
 

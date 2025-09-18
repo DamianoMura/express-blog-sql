@@ -1,5 +1,5 @@
 {
-  "name": "express-blog-intro",
+  "name": "express-blog-sql",
   "version": "1.0.0",
   "description": "Creiamo il nostro blog personale e giorno dopo giorno lo potremo arricchire con nuove funzionalità sulla base di quello che impareremo.",
   "license": "ISC",
@@ -9,9 +9,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "watch": "node --watch app.js" 
+    "watch": "node --watch app.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mysql2": "^3.15.0"
   }
 }
